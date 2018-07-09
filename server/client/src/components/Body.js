@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom'
+import {BrowserRouter,Route} from 'react-router-dom'
 import Landing from './Landing'
+import Dashboard from './Dashboard'
+import SurveyNew from './surveys/SurveyNew'
 
 class Body extends Component {
   renderContent() {
@@ -17,12 +19,16 @@ class Body extends Component {
         </div>
       )
       default:
-      return (
-        <div style={{textAlign:'center'}}>
-          <h1>
-            Dashboard, start driving....
-          </h1>
-        </div>
+//      return (<Dashboard />)
+      return (<div className='containter'>
+          <BrowserRouter>
+          <div>
+          <Route exact path="/surveys/new" component={SurveyNew} />
+          <Route exact path="/"        component={Dashboard} />
+          <Route exact path="/surveys" component={Dashboard} />
+          </div>
+          </BrowserRouter>
+          </div>
       )
     }
   }

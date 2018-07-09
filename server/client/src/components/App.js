@@ -5,10 +5,9 @@ import * as actions from '../actions'
 
 import Header from './Header';
 import Body from './Body'
+import SurveyNew from './surveys/SurveyNew'
 
 const Lander = ()=><h2>Lander....</h2>
-const Dashboard = ()=><h2>Dashboard</h2>
-const SurveyNew = ()=><h2>SurveyNew</h2>
 
 class App extends Component {
   componentWillUnmount() {
@@ -25,8 +24,23 @@ class App extends Component {
       this.props.fetchUser();
   }
   render() {
-    return (<div className='containter'><BrowserRouter><div><Header /><Body /></div></BrowserRouter></div>);
+ // new:
+      return (<BrowserRouter><div className="container"><div><Header /><Body /></div></div></BrowserRouter>);
+//        <div className='containter'><BrowserRouter><div><Header />
+//        <Body /></div></BrowserRouter></div>
+//      );
+
+/*
+// original:
+return (<div className='containter'><BrowserRouter><div><Header />
+    <Route path="/surveys/new" component={SurveyNew} />
+    <Body /></div></BrowserRouter></div>
+  );
+*/
+
   }
+
+  /*
   renderyyy() {
     return (
     <div className='container'>
@@ -40,7 +54,7 @@ class App extends Component {
     </BrowserRouter>
     </div>
     );
-}
+  }
   renderxxx() {
       switch (this.props.auth) {
       case false:
@@ -49,7 +63,8 @@ class App extends Component {
       default:
         return (<div className='containter'><BrowserRouter><div><Header /><Body /></div></BrowserRouter></div>);
       }
-}
+  }
+*/
 }
 
 

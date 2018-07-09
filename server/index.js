@@ -3,12 +3,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport')
+const bodyParser = require('body-parser');
 const keys = require('./config/keys')
 require('./models/User');
+require('./models/Record');
 require('./services/passport');
 
 const app = express();
-
+app.use(bodyParser.json());     // needed to get 'post' parameters to body object of req.
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -49,6 +51,7 @@ asyncCall();
 
 require('./routes/authRoutes')(app);
 //require('./routes/billingRoutes')(app);
+require('./routes/doorRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {    // Heroku CL argument, deal with client files
   // express will serve up production assets like main.js or main.css
