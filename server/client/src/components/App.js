@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import {BrowserRouter,Route} from 'react-router-dom';
+//import {BrowserRouter,Route} from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 import {connect} from 'react-redux'
 import * as actions from '../actions'
 
 import Header from './Header';
 import Body from './Body'
-import SurveyNew from './surveys/SurveyNew'
+//import SurveyNew from './surveys/SurveyNew'
 
-const Lander = ()=><h2>Lander....</h2>
 
 class App extends Component {
   componentWillUnmount() {

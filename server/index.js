@@ -41,9 +41,9 @@ function resolveAfter2() {
 
 async function asyncCall() {
   var result = await resolveAfter1();
-  console.log(result);
+  //console.log(result);
   var result = await resolveAfter2();
-  console.log(result);
+  //console.log(result);
   // expected output: "resolved"
 }
 
